@@ -19,7 +19,7 @@ MEMORY
 }
 
 /* Library configurations */
-GROUP(libgcc.a libc.a libm.a libnosys.a)
+/* GROUP(libgcc.a libc.a libm.a libnosys.a) */
 
 /* Linker script to place sections and symbol values.
  * It references the following symbols, which must be defined in code:
@@ -58,9 +58,11 @@ SECTIONS
 {
 	.vectors :
 	{
+		. = ALIGN(4);
+
 		KEEP(*(.vectors))
-		__Vectors_End = .;
-		__Vectors_Size = __Vectors_End - __Vectors;
+		/* __Vectors_End = .; */
+		/* __Vectors_Size = __Vectors_End - __Vectors; */
 		__end__ = .;
 	} > FLASH0
 

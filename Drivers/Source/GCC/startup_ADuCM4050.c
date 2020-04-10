@@ -70,6 +70,8 @@ extern void SystemInit (void);            /* CMSIS System Initialization      */
 #endif
 
 
+extern int main();
+
 /*----------------------------------------------------------------------------
   Internal References
  *----------------------------------------------------------------------------*/
@@ -370,7 +372,8 @@ void Reset_Handler_C(void) {
 #ifndef __START
 #define __START _start
 #endif
-	__START();
+	//__START();
+  main();
 
 }
 
